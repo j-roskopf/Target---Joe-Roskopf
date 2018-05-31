@@ -1,0 +1,123 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/deal_list_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:background="@drawable/white_color"
+    android:minHeight="128dp">
+
+    <ImageView
+        android:fontFamily="@font/helvetica_lt"
+        android:id="@+id/deal_list_item_image_view"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin_half"
+        android:layout_marginStart="@dimen/activity_horizontal_margin_half"
+        android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+        android:contentDescription="@string/product_image_content_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image_16776690" />
+
+    <TextView
+        android:id="@+id/deal_list_item_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin_half"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin_half"
+        android:layout_marginStart="@dimen/activity_horizontal_margin_half"
+        android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+        android:fontFamily="@font/helvetica_lt"
+        android:lineSpacingExtra="8sp"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toEndOf="@+id/deal_list_item_image_view"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Women's Linen Drapey Tank - Black / White" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin_half"
+        android:layout_marginStart="@dimen/activity_horizontal_margin_half"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/deal_list_item_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/deal_list_item_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/deal_list_item_title" />
+
+    <TextView
+        android:fontFamily="@font/helvetica_lt"
+        android:id="@+id/deal_list_item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin_half"
+        android:layout_marginStart="@dimen/activity_horizontal_margin_half"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/deal_list_item_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        tools:text="$15.99" />
+
+    <TextView
+        android:fontFamily="@font/helvetica_lt"
+        android:id="@+id/deal_list_item_shipping_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin_half"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin_half"
+        android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+        android:text="@string/ship"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/deal_list_item_or_text"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <TextView
+        android:fontFamily="@font/helvetica_lt"
+        android:id="@+id/deal_list_item_or_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin_half"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin_half"
+        android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+        android:text="@string/or"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/deal_list_item_aisle_text"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <TextView
+        android:fontFamily="@font/helvetica_lt"
+        android:id="@+id/deal_list_item_aisle_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin_half"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin_half"
+        android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+        android:background="@drawable/circular_background"
+        android:gravity="center"
+        android:textColor="@color/actionbar_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        tools:text="B10" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

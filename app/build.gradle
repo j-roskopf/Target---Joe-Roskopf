@@ -1,0 +1,115 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        applicationId "com.target.dealbrowserpoc.dealbrowser"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            debuggable true
+            buildConfigField "String", "DEAL_API_BASE_URL", '"http://target-deals.herokuapp.com/api/"'
+        }
+        release {
+            minifyEnabled false
+            buildConfigField "String", "DEAL_API_BASE_URL", '"http://target-deals.herokuapp.com/api/"'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}
+//http://target-deals.herokuapp.com/api/deals
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    def supportLibraryVersion = '27.1.1'
+    //Brought in for v4 Fragment
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+
+    //begin include for overriding conflicts
+    //these are just included to make sure all support libs are on the same version
+    implementation "com.android.support:animated-vector-drawable:$supportLibraryVersion"
+    implementation "com.android.support:exifinterface:$supportLibraryVersion"
+    //end include for overriding conflicTS
+
+    //brought in for recycler view
+    implementation "com.android.support:design:$supportLibraryVersion"
+
+    def constraintLayoutVersion = '1.1.0'
+    implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+
+    def retrofitVersion = "2.4.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    def rxJavaVersion = "2.1.14-RC1"
+    def rxAndroidVersion = "2.0.1"
+    def rxKotlinVersion = "2.2.0"
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
+
+    def gsonVersion = "2.8.4"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    def coroutinesVersion = "0.22.5"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$coroutinesVersion"
+
+    def daggerVersion = "2.14.1"
+    // Dagger core
+    implementation 'com.android.support:support-v4:27.1.1'
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    // Dagger Android
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    // if you are not using support library, include this instead
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+
+    def lifeCycleComponent = "1.1.1"
+    implementation "android.arch.lifecycle:extensions:$lifeCycleComponent"
+    implementation "android.arch.lifecycle:runtime:$lifeCycleComponent"
+
+    def picassoVersion = "2.71828"
+    implementation "com.squareup.picasso:picasso:$picassoVersion"
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
+
+    def mockitoCoreVersion = "2.11.0"
+    def mockitoKotlinVersion = "1.5.0"
+    testImplementation "org.mockito:mockito-core:$mockitoCoreVersion"
+    testImplementation("com.nhaarman:mockito-kotlin:$mockitoKotlinVersion") {
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
+    }
+
+    def junitVersion = "4.12"
+    def runnerVersion = "1.0.2"
+    def espressoVersion = "3.0.2"
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "com.android.support.test:runner:$runnerVersion"
+    androidTestImplementation "com.android.support.test:rules:$runnerVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
+
+}

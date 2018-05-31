@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Deal Browser</string>
+
+    <!-- Content Descriptions -->
+    <string name="product_image_content_description">Product Image</string>
+    <string name="product_image_detail_content_description">Product Image</string>
+
+    <string name="grid_view">Grid View</string>
+    <string name="add_to_cart">add to cart</string>
+    <string name="add_to_list">add to list</string>
+    <string name="regular_short">Reg: %1$s</string>
+    <string name="retry">Retry</string>
+
+
+    <!-- Error Messages -->
+    <string name="it_looks_like_an_error_occurred">It looks like an error occurred</string>
+    <string name="it_looks_like_we_don_t_have_any_deals_right_now_check_back_later">It looks like we don\'t have any deals right now! Check back later</string>
+    <string name="ship">ship</string>
+    <string name="or">or</string>
+    <string name="aisle_placeholder">%1$s%2$d</string>
+</resources>
